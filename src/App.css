@@ -3,13 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
+
+body {
   width: 100%;
-  height: 100vh;
+  height: 100%;
 }
-.App{
+
+.App {
   width: 350px;
-  height: 100vh;
+  height: 350px;
 }
 
 .board-container {
@@ -20,7 +22,6 @@ body{
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-
 }
 
 .square {
