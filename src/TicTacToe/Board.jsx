@@ -17,22 +17,29 @@ const Board = () => {
             [0, 4, 8], // Diagonal from top-left to bottom-right
             [2, 4, 6], // Diagonal from top-right to bottom-left
         ];
-    
+
         for (let logic of winnerLogic) {
             const [a, b, c] = logic;
-    
+
             if (state[a] !== null && state[a] === state[b] && state[a] === state[c]) {
                 return state[a]; // Return the winning symbol (e.g., 'X' or 'O')
             }
         }
-    
+
         return false; // Return false if no winner is found
     }
-    
+
 
     const isWinners = checkWinner();
+
     const handleClick = (index) => {
+
+        if (state[index] !== null) {
+            return;
+        }
+
         console.log("clicked on index", index);
+        
         const copyState = [...state];
         copyState[index] = isXTurn ? "X" : "0";
         setState(copyState);
@@ -46,6 +53,7 @@ const Board = () => {
         <div className="board-container">
             {isWinners ? (<>{isWinners} won the game <button onClick={handleReset}>Play Again</button></>) : (
                 <>
+                    <h4>Player {isXTurn ? "X" : "0"} Please Move</h4>
                     <div className="board-row">
                         <Square onClick={() => handleClick(0)} value={state[0]} />
                         <Square onClick={() => handleClick(1)} value={state[1]} />
