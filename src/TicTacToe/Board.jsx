@@ -11,7 +11,8 @@ const Board = () => {
         const copyState = [...state];
         copyState[index] = isXTurn ? "X" : "0";
         setState(copyState);
-    }
+        setisXTurn(!isXTurn);
+    } 
 
     return (
         <div className="board-container">
@@ -31,6 +32,7 @@ const Board = () => {
                 <Square onClick={() => handleClick(8)} value={state[8]} />
             </div>
         </div>
+
     )
 }
 

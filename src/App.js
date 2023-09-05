@@ -6,7 +6,8 @@ import './App.css';
 const App = () => {
   return (
     <>
-      <div className="App"><Board />
+      <div className="App">
+        <Board />
       </div>
     </>
   )
